@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:productos_app/providers/category_providers.dart';
+import 'package:productos_app/providers/login_provider.dart';
 import 'package:productos_app/router/app_routes.dart';
 import 'package:provider/provider.dart';
 import 'providers/product_provider.dart';
@@ -20,6 +21,10 @@ class AppState extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => ProductProvider(),
+          lazy: false,
+        ),
+        ChangeNotifierProvider(
+          create: (_) => LoginProvider(),
           lazy: false,
         ),
       ],

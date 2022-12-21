@@ -3,6 +3,8 @@ import 'package:productos_app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../providers/login_provider.dart';
+
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
 
@@ -10,7 +12,7 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-String password = '', usuario = '', claveFija = "admin", usuarioFijo = "admin";
+String password = '', usuario = '';
 
 class _LoginScreenState extends State<LoginScreen> {
   @override
@@ -94,23 +96,20 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Widget buttonInicioSesion() {
+    final loginProvider = Provider.of<LoginProvider>(context);
     return SizedBox(
       width: 100,
       height: 40,
       child: ElevatedButton(
         onPressed: () async {
-          if (password == claveFija && usuario == usuarioFijo) {
-            final prefs = await SharedPreferences.getInstance();
-            prefs.setString('user', usuario);
+          if (await loginProvider.signIn(usuario, password)) {
             Navigator.pushReplacementNamed(context, 'home');
           } else {
             final snackBar = SnackBar(
               content: const Text('Usuario o contrasena incorrecta!'),
               action: SnackBarAction(
                 label: 'ok!!!',
-                onPressed: () {
-                  // Some code to undo the change.
-                },
+                onPressed: () {},
               ),
             );
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
