@@ -1,16 +1,22 @@
 # productos_app
 
-A new Flutter project.
+Carrito de compras, prueba de básica de flutter
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Pantalla de Login
+Campos: nombre de usuario y contraseña
+Crear una validación para usuario:admin y contraseña: admin.
+Se debe guardar en la caché un token cualquiera para poder validar luego.
+Funcionamiento
+Crear un carrito de compras.
+Flujo:
+● Listar categorias
+● Ver productos de categoría seleccionada
+● Agregar productos a un carrito de compras.
+● Eliminar productos del carrito.
+● Crear un botón para generar pedido, aquí se debe validar si el usuario tiene
+la sesión activa, en caso de no tener sesión activa debe redirigir al login.
+● Si la sesión está activa, debe mostrar una alerta que diga “Compra exitosa”
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Importante: Se considerará el funcionamiento y lógica, el diseño es opcional.
